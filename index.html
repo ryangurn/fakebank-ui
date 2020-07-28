@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
@@ -154,15 +156,15 @@
                     <div class="col">
                         <div class="card text-body border-left-primary py-2">
                             <div class="card-body">
-                                <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Fake Banks</span></div>
-                                <div class="table-responsive table-bordered">
-                                    <table class="table table-bordered table-hover table-sm">
+                                <div class="text-uppercase text-left text-primary font-weight-bold text-xs mb-1"><button class="btn btn-primary btn-sm float-right" type="button" data-toggle="modal" data-target="#add-bank">+</button><span class="float-left" style="margin-bottom: 25px;">Fake Banks<br></span></div>
+                                <div class="table-responsive border rounded border-primary shadow">
+                                    <table class="table table-hover table-sm">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Caption</th>
                                                 <th>Active</th>
-                                                <th>Actions</th>
+                                                <th style="min-width: 100px;max-width: 250px;width: 100px;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -189,50 +191,93 @@
                         </div>
                     </div>
                     <div class="col" style="margin-top: 10px;">
+                        <div class="card shadow border-left-info py-2" data-bs-hover-animate="shake">
+                            <div class="card-body">
+                                <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span class="float-left" style="color: #36b9cc;margin-bottom: 25px;">Fake Accounts</span><button class="btn btn-success btn-sm float-right" type="button" data-toggle="modal" data-target="#add-account" style="background-color: #36b9cc;">+</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-top: 10px;">
                         <div class="card shadow border-left-success py-2">
                             <div class="card-body">
-                                <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: rgb(28,200,138);">Fake Transactions</span></div>
-                                <div class="table-responsive table-bordered">
-                                    <table class="table table-bordered table-hover table-sm">
+                                <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span class="float-left" style="color: rgb(28,200,138);margin-bottom: 25px;">Fake Transactions</span><button class="btn btn-success btn-sm float-right" type="button" data-toggle="modal" data-target="#add-transaction">+</button></div>
+                                <div
+                                    class="table-responsive border rounded border-success shadow-lg">
+                                    <table class="table table-hover table-sm">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Caption</th>
-                                                <th>Active</th>
-                                                <th>Actions</th>
+                                                <th>Account</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Time</th>
+                                                <th style="min-width: 100px;max-width: 250px;width: 100px;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Cell 1</td>
-                                                <td>Cell 2</td>
-                                                <td><span class="badge badge-primary bg-success">Active</span></td>
+                                                <td>**** **** **** 1456</td>
+                                                <td>iTunes.com/Apple</td>
+                                                <td><span>$</span><span class="float-right">1.99</span></td>
+                                                <td><i class="fa fa-calendar"></i><span>: July 27, 2020&nbsp;</span><i class="fa fa-clock-o"></i><span>: 7:35PM</span></td>
                                                 <td>
                                                     <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary bg-success border-success" type="button">Show</button><button class="btn btn-primary bg-warning border-warning" type="button">Edit</button></div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Cell 3</td>
-                                                <td>Cell 4</td>
-                                                <td><span class="badge badge-primary bg-danger">Inactive</span></td>
+                                                <td>**** **** **** 7380</td>
+                                                <td>Bestbuy</td>
+                                                <td><span>(</span><span class="float-right">1.99)</span></td>
+                                                <td><i class="fa fa-calendar"></i><span>: July 27, 2020&nbsp;</span><i class="fa fa-clock-o"></i><span>: 5:35PM</span></td>
                                                 <td>
                                                     <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary bg-success border-success" type="button">Show</button><button class="btn btn-primary bg-warning border-warning" type="button">Edit</button></div>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="modal fade border-primary" role="dialog" tabindex="-1" id="add-bank">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Bank</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div class="modal-body">
+                                <form><label for="bank-name">Name</label><input class="form-control" type="text" id="bank-name"><label for="bank-name">Caption</label><textarea class="form-control"></textarea>
+                                    <div class="form-check" style="margin-top: 10px;"><input class="form-check-input" type="checkbox"><label class="form-check-label">Status</label></div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-group" role="group"><button class="btn btn-light border-dark" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="add-transaction">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Transaction</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div class="modal-body">
+                                <p>Here is where the transaction form will go.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-group" role="group"><button class="btn btn-light border-dark" type="button" data-dismiss="modal">Close</button><button class="btn btn-success" type="button">Save</button></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Fakebank 2020</span></div>
-            </div>
-        </footer>
+    </div>
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"><span>Copyright © Fakebank 2020</span></div>
+        </div>
+    </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
